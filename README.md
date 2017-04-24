@@ -34,6 +34,11 @@ pip install molecule
 
 ### Development
 
+```
+cd src/roles/mopidy
+molecule test
+```
+
 Useful commands:
 
 docker exec -it mopidy bash
