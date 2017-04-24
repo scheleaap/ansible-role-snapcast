@@ -1,0 +1,15 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+docker:
+  containers:
+    - name: mopidy
+      image: debian
+      image_version: jessie
+#      image_version: testing
+      ansible_groups:
+        - group1
+verifier:
+  name: testinfra

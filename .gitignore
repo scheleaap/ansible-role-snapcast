@@ -1,0 +1,17 @@
+# Python
+*.pyc
+__pycache__/
+
+# Virtualenv
+/bin/
+/etc/
+/include/
+/lib/
+/local/
+/share/
+pip-selfcheck.json
+
+/src/experiments
+
+.cache
+.molecule

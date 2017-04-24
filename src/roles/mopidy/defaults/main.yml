@@ -1,0 +1,4 @@
+---
+# defaults file for mopidy
+mopidy_spotify_username: "{{ ansible_user }}"
+mopidy_spotify_password: pass

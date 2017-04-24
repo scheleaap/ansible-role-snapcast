@@ -1,0 +1,30 @@
+---
+# tasks file for mopidy
+
+- name: "Ensure /etc/sources.list.d exists"
+  file:
+    path: /etc/sources.list.d
+    state: directory
+    mode: 0755
+- name: "Ensure GnuPG is installed"
+  apt:
+    name: gnupg
+    state: present
+- name: "Ensure Mopidy APT key is present"
+  apt_key:
+    url: https://apt.mopidy.com/mopidy.gpg
+    state: present
+    validate_certs: False  # TEMP
+- name: "Ensure Mopidy APT repo is present"
+  apt_repository:
+    repo: deb http://apt.mopidy.com/ jessie main contrib non-free
+    state: present
+    filename: mopidy
+    update_cache: yes
+    validate_certs: no
+- name: "Ensure Mopidy is installed"
+  apt:
+    name: mopidy=2.1.0-1
+    state: present
+
+# mopidy-spotify=3.0.0-0mopidy1

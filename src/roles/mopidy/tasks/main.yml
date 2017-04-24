@@ -1,0 +1,5 @@
+---
+# tasks file for mopidy
+
+- include: install_apt.yml
+#- include: install_pip.yml
