@@ -23,4 +23,13 @@
     version: 2.1.0
     state: present
 
-# mopidy-spotify=3.0.0
+- name: "Configure Mopidy"
+  template:
+    src: /templates/mopidy.conf.j2
+    dest: /etc/mopidy/mopidy.conf
+
+- name: "Ensure Spotify plugin for Mopidy is installed"
+  pip:
+    name: mopidy-spotify
+    version: 3.0.0
+    state: present

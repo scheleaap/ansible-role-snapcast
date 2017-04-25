@@ -4,11 +4,14 @@ dependency:
 driver:
   name: docker
 docker:
+  # See also http://molecule.readthedocs.io/en/latest/driver/docker/index.html#docker-driver-usage
   containers:
     - name: mopidy
       image: debian
       image_version: jessie
 #      image_version: testing
+      port_bindings:
+        "6680": "6680"
       ansible_groups:
         - group1
 verifier:

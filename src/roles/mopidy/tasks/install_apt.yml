@@ -26,5 +26,8 @@
   apt:
     name: mopidy=2.1.0-1
     state: present
-
-# mopidy-spotify=3.0.0-0mopidy1
+- name: "Ensure Spotify plugin for Mopidy is installed"
+  pip:
+    name: mopidy-spotify
+    version: 3.0.0-0mopidy1
+    state: present

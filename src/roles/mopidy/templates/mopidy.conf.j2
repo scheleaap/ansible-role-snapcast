@@ -1,6 +1,13 @@
 [mpd]
 hostname = ::
 
+[http]
+enabled = true
+hostname = ::
+port = 6680
+static_dir =
+zeroconf = Mopidy HTTP server on $hostname
+
 [spotify]
 username = {{ mopidy_spotify_username }}
 password = {{ mopidy_spotify_password }}
