@@ -1,35 +1,35 @@
----
-# tasks file for mopidy
-
-- name: "Ensure pip and virtualenv are installed"
-  apt:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - python-pip
-    - python-virtualenv
-
-- name: "Ensure Mopidy dependencies are installed"
-  apt:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - build-essential
-    - python-dev
-
-- name: "Ensure Mopidy is installed"
-  pip:
-    name: mopidy
-    version: 2.1.0
-    state: present
-
-- name: "Configure Mopidy"
-  template:
-    src: /templates/mopidy.conf.j2
-    dest: /etc/mopidy/mopidy.conf
-
-- name: "Ensure Spotify plugin for Mopidy is installed"
-  pip:
-    name: mopidy-spotify
-    version: 3.0.0
-    state: present
+# ---
+# # tasks file for mopidy
+#
+# - name: "Ensure pip and virtualenv are installed"
+#   apt:
+#     name: "{{ item }}"
+#     state: present
+#   with_items:
+#     - python-pip
+#     - python-virtualenv
+#
+# - name: "Ensure Mopidy dependencies are installed"
+#   apt:
+#     name: "{{ item }}"
+#     state: present
+#   with_items:
+#     - build-essential
+#     - python-dev
+#
+# - name: "Ensure Mopidy is installed"
+#   pip:
+#     name: mopidy
+#     version: 2.1.0
+#     state: present
+#
+# - name: "Configure Mopidy"
+#   template:
+#     src: /templates/mopidy.conf.j2
+#     dest: /etc/mopidy/mopidy.conf
+#
+# - name: "Ensure Spotify plugin for Mopidy is installed"
+#   pip:
+#     name: mopidy-spotify
+#     version: 3.0.0
+#     state: present

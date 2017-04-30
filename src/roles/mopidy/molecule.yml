@@ -9,8 +9,8 @@ docker:
     - name: mopidy
       image: debian
       image_version: jessie
-#      image_version: testing
       port_bindings:
+        "6600": "6600"
         "6680": "6680"
       ansible_groups:
         - group1

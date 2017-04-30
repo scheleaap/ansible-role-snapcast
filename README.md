@@ -34,9 +34,14 @@ pip install molecule
 
 ### Development
 
-```
+```sh
 cd src/roles/mopidy
 molecule test
+```
+
+In the container:
+```sh
+nohup /usr/bin/mopidy --config /etc/mopidy/mopidy.conf &
 ```
 
 Useful commands:
