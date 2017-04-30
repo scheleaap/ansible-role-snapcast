@@ -18,8 +18,8 @@ def test_mopidy_apt_repository_present(File):
     assert "http://apt.mopidy.com/" in content
 
 
-def test_mopidy_packages_are_installed(Package):
-    plugins = [
+def test_mopidy_apt_packages_are_installed(Package):
+    packages = [
         ("mopidy", "2.1.0-1"),
         ("mopidy-scrobbler", "1.1.1-3"),
         ("mopidy-soundcloud", "2.0.2-2"),
@@ -27,10 +27,22 @@ def test_mopidy_packages_are_installed(Package):
         ("mopidy-spotify-tunigo", "1.0.0-0mopidy1"),
         ]
 
-    for package_name, package_version in plugins:
+    for package_name, package_version in packages:
         package = Package(package_name)
         assert package.is_installed
         assert package.version == package_version
+
+
+def test_mopidy_pip_packages_are_installed(PipPackage):
+    packages = [
+        ("Mopidy-Iris", "2.13.15"),
+        ]
+
+    installed_packages = PipPackage.get_packages()
+    for package_name, package_version in packages:
+        assert package_name in installed_packages
+        package = installed_packages[package_name]
+        assert package["version"] == package_version
 
 
 def test_mopidy_configuration(File):

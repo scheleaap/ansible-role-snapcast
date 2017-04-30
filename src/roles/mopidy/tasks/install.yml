@@ -41,9 +41,14 @@
   apt:
     name: mopidy-soundcloud=2.0.2-2
     state: present
-
-# - name: "Ensure Mopidy is running and started at boot"
-#  service:
-#    name: mopidy
-#    state: started
-#    enabled: yes
+- name: "Ensure pip is installed"
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - python-pip
+- name: "Ensure Iris plugin for Mopidy is installed"
+  pip:
+    name: Mopidy-Iris
+    version: 2.13.15
+    state: present

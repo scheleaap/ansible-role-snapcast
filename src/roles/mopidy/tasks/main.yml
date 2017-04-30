@@ -1,6 +1,6 @@
 ---
 # tasks file for mopidy
 
-- include: install_apt.yml
-#- include: install_pip.yml
+- include: install.yml
 - include: configure.yml
+- include: run.yml
