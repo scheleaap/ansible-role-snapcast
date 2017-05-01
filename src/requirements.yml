@@ -1,0 +1,5 @@
+---
+
+- src: https://github.com/scheleaap/ansible-role-env-common.git
+  version: master
+  name: env-common

@@ -1,0 +1,6 @@
+---
+#mopidy_user: "{{ ansible_user }}"
+mopidy_lastfm_username: "{{ vault_mopidy_lastfm_username }}"
+mopidy_lastfm_password: "{{ vault_mopidy_lastfm_password }}"
+mopidy_spotify_username: "{{ vault_mopidy_spotify_username }}"
+mopidy_spotify_password: "{{ vault_mopidy_spotify_password }}"

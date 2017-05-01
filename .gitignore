@@ -11,7 +11,11 @@ __pycache__/
 /share/
 pip-selfcheck.json
 
-/src/experiments
-
+# Other
 .cache
 .molecule
+
+# Mine
+vault
+/src/experiments
+/TODO.md

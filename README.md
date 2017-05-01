@@ -48,3 +48,11 @@ Useful commands:
 
 docker exec -it mopidy bash
 apt-cache madison mopidy
+
+
+## Running it
+
+```sh
+# ansible-galaxy install -r requirements.yml
+ansible-playbook site.yml --ask-vault-pass
+```
