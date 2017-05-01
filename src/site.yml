@@ -6,15 +6,15 @@
   roles:
     - role: env-common
 
-#- hosts: media_center
-#  remote_user: "{{ login_username }}"
-#  become_user: root
-#  become_method: sudo
-#  roles:
-#    - role: mopidy
-#    - role: snapserver
-#    #- role: kodi
-#
+- hosts: media_center
+  remote_user: "{{ login_username }}"
+  become_user: root
+  become_method: sudo
+  roles:
+    - role: mopidy
+    #- role: snapserver
+    #- role: kodi
+
 #- hosts: music_streamer
 #  remote_user: "{{ login_username }}"
 #  become_user: root
