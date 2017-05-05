@@ -15,8 +15,8 @@ Variable | Description
 --- | ---
 `snapcast_install_server` | Install the Snapcast server? (boolean, default: yes)
 `snapcast_install_client` | Install the Snapcast client? (boolean, default: yes)
-`snapcast_version` | The version of Snapcast to install. See [the releases page](https://github.com/badaix/snapcast/releases) for the all versions.
-`snapcast_architecture` | The CPU architecture to install. Common values: `amd64`, `armhf` (e.g. Raspberry Pi). See [the release page](https://github.com/badaix/snapcast/releases) for all architectures.
+`snapcast_version` | The version of Snapcast to install. See [the releases](https://github.com/badaix/snapcast/releases) for the all versions.
+`snapcast_architecture` | The CPU architecture to install. Common values: `amd64`, `armhf` (e.g. Raspberry Pi). See [the releases](https://github.com/badaix/snapcast/releases) for all architectures.
 
 
 ## Dependencies
