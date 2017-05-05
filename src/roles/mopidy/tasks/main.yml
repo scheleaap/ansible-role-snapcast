@@ -1,6 +1,0 @@
----
-# tasks file for mopidy
-
-- include: install.yml
-- include: configure.yml
-- include: run.yml

@@ -1,0 +1,6 @@
+---
+# defaults file for snapcast
+snapcast_install_server: yes
+snapcast_install_client: yes
+snapcast_version: 0.11.1
+snapcast_architecture: amd64

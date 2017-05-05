@@ -1,8 +1,0 @@
----
-# tasks file for mopidy
-
-# - name: "Ensure Mopidy is running and started at boot"
-#  service:
-#    name: mopidy
-#    state: started
-#    enabled: yes

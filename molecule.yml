@@ -4,14 +4,10 @@ dependency:
 driver:
   name: docker
 docker:
-  # See also http://molecule.readthedocs.io/en/latest/driver/docker/index.html#docker-driver-usage
   containers:
-    - name: mopidy
+    - name: snapcast
       image: debian
       image_version: jessie
-      port_bindings:
-        "6600": "6600"
-        "6680": "6680"
       ansible_groups:
         - group1
 verifier:

@@ -2,20 +2,9 @@
 *.pyc
 __pycache__/
 
-# Virtualenv
-/bin/
-/etc/
-/include/
-/lib/
-/local/
-/share/
-pip-selfcheck.json
-
 # Other
 .cache
 .molecule
 
 # Mine
 vault
-/src/experiments
-/TODO.md
