@@ -1,6 +1,6 @@
 # Ansible role for Mopidy
 
-Installs and configures [Snapcast](https://github.com/badaix/snapcast)
+Installs and configures [Snapcast](https://github.com/badaix/snapcast).
 
 ## Requirements
 
