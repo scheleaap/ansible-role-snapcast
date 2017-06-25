@@ -1,18 +1,11 @@
 ---
 # tasks file for snapcast
-- name: "Ensure that the ca-certificates package is installed (workaround for an Ansible SSL problem)"
-  apt:
-    name: ca-certificates
-    state: present
+- include: common.yml
   when:
     - snapcast_install_server == true or snapcast_install_client == true
-- name: "Ensure the Snapcast server is installed"
-  apt:
-    deb: "https://github.com/badaix/snapcast/releases/download/v{{ snapcast_version }}/snapserver_{{ snapcast_version}}_{{ snapcast_architecture}}.deb"
+- include: server.yml
   when:
     - snapcast_install_server == true
-- name: "Ensure the Snapcast client is installed"
-  apt:
-    deb: "https://github.com/badaix/snapcast/releases/download/v{{ snapcast_version }}/snapclient_{{ snapcast_version}}_{{ snapcast_architecture}}.deb"
+- include: client.yml
   when:
     - snapcast_install_client == true

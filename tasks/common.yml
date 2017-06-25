@@ -1,0 +1,7 @@
+---
+# tasks file for snapcast
+- name: "Ensure that the ca-certificates package is installed (workaround for an Ansible SSL problem)"
+  become: true
+  apt:
+    name: ca-certificates
+    state: present

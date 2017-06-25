@@ -12,3 +12,9 @@ docker:
         - group1
 verifier:
   name: testinfra
+ansible:
+  group_vars:
+    all:
+      snapcast_install_server: true
+      snapcast_install_client: true
+      snapcast_client_daemon_options: --test yes

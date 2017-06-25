@@ -4,21 +4,6 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
     '.molecule/ansible_inventory').get_hosts('all')
 
 
-# import pytest
-# @pytest.fixture  # (scope="module")
-# def AnsibleDefaults(Ansible):
-#     return Ansible("include_vars", "./defaults/main.yml")["ansible_facts"]
-#
-#
-# @pytest.fixture  # (scope="module")
-# def AnsibleVars(Ansible):
-#     return Ansible("include_vars", "./vars/main.yml")["ansible_facts"]
-#
-#
-# def test_ansible(AnsibleVars):
-#     print AnsibleVars
-#     assert False
-
 def test_apt_packages_are_installed(Package):
     packages = [
         ("snapserver", "0.11.1"),
@@ -29,3 +14,16 @@ def test_apt_packages_are_installed(Package):
         package = Package(package_name)
         assert package.is_installed
         assert package.version == package_version
+
+
+def test_var_lib_snapclient_exists(File):
+    f = File("/var/lib/snapclient")
+    assert f.exists
+    assert f.user == "snapclient"
+    assert f.group == "audio"
+
+
+def test_snapclient_configuration(File):
+    f = File("/etc/default/snapclient")
+    assert f.exists
+    assert f.contains("^SNAPCLIENT_OPTS=\"--test yes\"$")
