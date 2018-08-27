@@ -6,8 +6,8 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 def test_apt_packages_are_installed(Package):
     packages = [
-        ("snapserver", "0.11.1"),
-        ("snapclient", "0.11.1"),
+        ("snapserver", "0.15.0"),
+        ("snapclient", "0.15.0"),
         ]
 
     for package_name, package_version in packages:
