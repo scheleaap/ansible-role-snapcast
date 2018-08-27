@@ -27,3 +27,9 @@ def test_snapclient_configuration(File):
     f = File("/etc/default/snapclient")
     assert f.exists
     assert f.contains("^SNAPCLIENT_OPTS=\"--test yes\"$")
+
+
+def test_etc_passwd_shell(File):
+    f = File("/etc/passwd")
+    assert f.exists
+    assert not f.contains("/var/lib/snapclient:$")

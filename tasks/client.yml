@@ -18,3 +18,10 @@
     path: /etc/default/snapclient
     regexp: "^SNAPCLIENT_OPTS="
     line: "SNAPCLIENT_OPTS=\"{{ snapcast_client_daemon_options }}\""
+- name: "Ensure the snapclient user has a shell set. If it hasn't, the client won't play audio properly. See https://github.com/badaix/snapcast/issues/229#issuecomment-328167681."
+  become: true
+  lineinfile:
+    path: /etc/passwd
+    regexp: "^snapclient:(.*):/var/lib/snapclient:$"
+    line: "snapclient:\\1:/var/lib/snapclient:/usr/sbin/nologin"
+    backrefs: true
