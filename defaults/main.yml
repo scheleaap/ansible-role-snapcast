@@ -5,3 +5,4 @@ snapcast_install_client: false
 snapcast_version: 0.15.0
 snapcast_architecture: amd64
 snapcast_client_daemon_options: ""
+snapcast_client_user: _snapclient

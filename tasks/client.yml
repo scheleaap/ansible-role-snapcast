@@ -9,7 +9,7 @@
   file:
     path: /var/lib/snapclient
     state: directory
-    owner: snapclient
+    owner: "{{ snapcast_client_user }}"
     group: audio
     mode: 0755
 - name: "Ensure the options to the Snapclient daemon are set"
