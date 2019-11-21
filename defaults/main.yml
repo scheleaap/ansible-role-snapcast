@@ -2,7 +2,7 @@
 # defaults file for snapcast
 snapcast_install_server: false
 snapcast_install_client: false
-snapcast_version: 0.16.0
+snapcast_version: 0.17.0
 snapcast_architecture: amd64
 snapcast_client_daemon_options: ""
-snapcast_client_user: _snapclient
+snapcast_client_user: snapclient
