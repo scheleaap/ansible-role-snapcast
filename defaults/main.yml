@@ -7,3 +7,4 @@ snapcast_version_suffix: "-1"
 snapcast_architecture: amd64
 snapcast_client_daemon_options: ""
 snapcast_client_user: snapclient
+snapcast_server_daemon_options: ""
