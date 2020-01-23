@@ -3,4 +3,10 @@
 - name: "Ensure the Snapcast server is installed"
   become: true
   apt:
-    deb: "https://github.com/badaix/snapcast/releases/download/v{{ snapcast_version }}/snapserver_{{ snapcast_version}}_{{ snapcast_architecture}}.deb"
+    deb: "https://github.com/badaix/snapcast/releases/download/v{{ snapcast_version }}/snapserver_{{ snapcast_version}}{{ snapcast_version_suffix }}_{{ snapcast_architecture}}.deb"
+- name: "Ensure the options to the Snapserver daemon are set"
+  become: true
+  lineinfile:
+    path: /etc/default/snapserver
+    regexp: "^SNAPSERVER_OPTS="
+    line: "SNAPSERVER_OPTS=\"{{ snapcast_server_daemon_options }}\""
