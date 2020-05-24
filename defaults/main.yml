@@ -8,3 +8,4 @@ snapcast_architecture: amd64
 snapcast_client_daemon_options: ""
 snapcast_client_user: snapclient
 snapcast_server_daemon_options: ""
+snapcast_server_buffer_ms: 1000

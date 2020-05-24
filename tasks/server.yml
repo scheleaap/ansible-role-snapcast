@@ -10,3 +10,10 @@
     path: /etc/default/snapserver
     regexp: "^SNAPSERVER_OPTS="
     line: "SNAPSERVER_OPTS=\"{{ snapcast_server_daemon_options }}\""
+- name: "Set the Snapserver buffer"
+  become: true
+  lineinfile:
+    dest: /etc/snapserver.conf
+    regexp: ^buffer = 
+    line: buffer = {{ snapcast_server_buffer_ms }}
+    insertafter: ^# Buffer
