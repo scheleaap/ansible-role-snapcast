@@ -14,6 +14,12 @@
   become: true
   lineinfile:
     dest: /etc/snapserver.conf
-    regexp: ^buffer = 
-    line: buffer = {{ snapcast_server_buffer_ms }}
-    insertafter: ^# Buffer
+    regexp: "^buffer = "
+    line: "buffer = {{ snapcast_server_buffer_ms }}"
+    insertafter: "^# Buffer"
+- name: "Configure the Snapserver sources"
+  become: true
+  lineinfile:
+    dest: /etc/snapserver.conf
+    regexp: "stream = pipe:///tmp/snapfifo"
+    line: "stream = pipe:///tmp/snapfifo?name=default&sampleformat=44100:16:2"
