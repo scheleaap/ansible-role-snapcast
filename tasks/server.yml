@@ -21,5 +21,5 @@
   become: true
   lineinfile:
     dest: /etc/snapserver.conf
-    regexp: "stream = pipe:///tmp/snapfifo"
-    line: "stream = pipe:///tmp/snapfifo?name=default&sampleformat=44100:16:2"
+    regexp: "source = pipe:///tmp/snapfifo?name=default"
+    line: "source = pipe:///tmp/snapfifo?name=default&sampleformat=44100:16:2"
