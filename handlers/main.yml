@@ -1,2 +1,13 @@
 ---
-# handlers file for snapcast
+- name: "Restart Snapcast server"
+  listen: "restart snapserver"
+  become: true
+  service:
+    name: snapserver
+    state: restarted
+- name: "Restart Snapcast client"
+  listen: "restart snapclient"
+  become: true
+  service:
+    name: snapclient
+    state: restarted

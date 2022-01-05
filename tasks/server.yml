@@ -4,9 +4,30 @@
   become: true
   apt:
     deb: "https://github.com/badaix/snapcast/releases/download/v{{ snapcast_version }}/snapserver_{{ snapcast_version}}{{ snapcast_version_suffix }}_{{ snapcast_architecture}}.deb"
+  notify:
+    - restart snapclient
 - name: "Ensure the options to the Snapserver daemon are set"
   become: true
   lineinfile:
     path: /etc/default/snapserver
     regexp: "^SNAPSERVER_OPTS="
     line: "SNAPSERVER_OPTS=\"{{ snapcast_server_daemon_options }}\""
+  notify:
+    - restart snapserver
+- name: "Set the Snapserver buffer"
+  become: true
+  lineinfile:
+    dest: /etc/snapserver.conf
+    regexp: "^buffer = "
+    line: "buffer = {{ snapcast_server_buffer_ms }}"
+    insertafter: "^# Buffer"
+  notify:
+    - restart snapserver
+- name: "Configure the Snapserver sources"
+  become: true
+  lineinfile:
+    dest: /etc/snapserver.conf
+    regexp: "source = pipe:///tmp/snapfifo?name=default"
+    line: "source = pipe:///tmp/snapfifo?name=default&sampleformat=44100:16:2"
+  notify:
+    - restart snapserver

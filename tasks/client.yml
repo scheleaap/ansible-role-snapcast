@@ -4,6 +4,8 @@
   become: true
   apt:
     deb: "https://github.com/badaix/snapcast/releases/download/v{{ snapcast_version }}/snapclient_{{ snapcast_version }}{{ snapcast_version_suffix }}_{{ snapcast_architecture}}.deb"
+  notify:
+    - restart snapclient
 - name: "Ensure /var/lib/snapclient exists (to prevent runtime warnings)"
   become: true
   file:
@@ -12,12 +14,16 @@
     owner: "{{ snapcast_client_user }}"
     group: audio
     mode: 0755
+  notify:
+    - restart snapclient
 - name: "Ensure the options to the Snapclient daemon are set"
   become: true
   lineinfile:
     path: /etc/default/snapclient
     regexp: "^SNAPCLIENT_OPTS="
     line: "SNAPCLIENT_OPTS=\"{{ snapcast_client_daemon_options }}\""
+  notify:
+    - restart snapclient
 - name: "Ensure the snapclient user has a shell set. If it hasn't, the client won't play audio properly. See https://github.com/badaix/snapcast/issues/229#issuecomment-328167681."
   become: true
   lineinfile:
@@ -25,3 +31,5 @@
     regexp: "^snapclient:(.*):/var/lib/snapclient:$"
     line: "snapclient:\\1:/var/lib/snapclient:/usr/sbin/nologin"
     backrefs: true
+  notify:
+    - restart snapclient
