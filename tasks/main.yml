@@ -1,11 +1,11 @@
 ---
 # tasks file for snapcast
-- include: common.yml
+- import_tasks: common.yml
   when:
     - snapcast_install_server == true or snapcast_install_client == true
-- include: server.yml
+- import_tasks: server.yml
   when:
     - snapcast_install_server == true
-- include: client.yml
+- import_tasks: client.yml
   when:
     - snapcast_install_client == true
