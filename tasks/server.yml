@@ -27,7 +27,7 @@
   become: true
   lineinfile:
     dest: /etc/snapserver.conf
-    regexp: "source = pipe:///tmp/snapfifo?name=default"
-    line: "source = pipe:///tmp/snapfifo?name=default&sampleformat=44100:16:2"
+    regexp: "^source = "
+    line: "source = {{ snapcast_server_source }}"
   notify:
     - restart snapserver
