@@ -14,7 +14,7 @@
     line: "SNAPSERVER_OPTS=\"{{ snapcast_server_daemon_options }}\""
   notify:
     - restart snapserver
-- name: "Set the Snapserver buffer"
+- name: "Ensure the Snapserver buffer is set"
   become: true
   lineinfile:
     dest: /etc/snapserver.conf
@@ -23,7 +23,7 @@
     insertafter: "^# Buffer"
   notify:
     - restart snapserver
-- name: "Configure the Snapserver sources"
+- name: "Ensure the Snapserver sources are configured"
   become: true
   lineinfile:
     dest: /etc/snapserver.conf
@@ -31,3 +31,14 @@
     line: "source = {{ snapcast_server_source }}"
   notify:
     - restart snapserver
+- name: "Ensure the run directory is created"
+  become: true
+  template:
+    src: templates/snapserver.conf
+    dest: /usr/lib/tmpfiles.d/snapserver.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart snapserver
+    - create tmpfiles

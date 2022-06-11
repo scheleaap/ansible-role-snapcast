@@ -1,4 +1,8 @@
 ---
+- name: "Create systemd tmpfiles"
+  listen: "create tmpfiles"
+  become: true
+  command: systemd-tmpfiles --create
 - name: "Restart Snapcast server"
   listen: "restart snapserver"
   become: true

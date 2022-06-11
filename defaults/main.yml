@@ -9,4 +9,5 @@ snapcast_client_daemon_options: ""
 snapcast_client_user: snapclient
 snapcast_server_daemon_options: ""
 snapcast_server_buffer_ms: 1000
-snapcast_server_source: "pipe:///tmp/snapfifo?name=default"
+snapcast_server_source: "pipe:///run/snapserver/snapfifo?name=default"
+snapcast_server_run_directory: /run/snapserver
