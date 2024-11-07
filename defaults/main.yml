@@ -2,12 +2,13 @@
 # defaults file for snapcast
 snapcast_install_server: false
 snapcast_install_client: false
-snapcast_version: "0.22.0"
+snapcast_version: "0.29.0"
 snapcast_version_suffix: "-1"
-snapcast_architecture: amd64
+snapcast_architecture: "amd64"
+snapcast_os_release: "bullseye"
 snapcast_client_daemon_options: ""
-snapcast_client_user: snapclient
+snapcast_client_user: "snapclient"
 snapcast_server_daemon_options: ""
 snapcast_server_buffer_ms: 1000
 snapcast_server_source: "pipe:///run/snapserver/snapfifo?name=default"
-snapcast_server_run_directory: /run/snapserver
+snapcast_server_run_directory: "/run/snapserver"
